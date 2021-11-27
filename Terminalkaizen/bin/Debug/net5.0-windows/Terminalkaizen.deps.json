@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Terminalkaizen/1.0.0": {
+        "dependencies": {
+          "CoreKaizen": "1.0.0"
+        },
+        "runtime": {
+          "Terminalkaizen.dll": {}
+        }
+      },
+      "CoreKaizen/1.0.0": {
+        "runtime": {
+          "CoreKaizen.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Terminalkaizen/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoreKaizen/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
