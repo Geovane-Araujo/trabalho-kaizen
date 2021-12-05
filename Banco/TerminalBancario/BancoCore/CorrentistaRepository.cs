@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BancoCore
 {
@@ -53,6 +54,11 @@ namespace BancoCore
                 return correntista;
             }
             else { return new Correntista(); }
+        }
+
+        public ICollection<Correntista> GetAll()
+        {
+            return _entities.Correntista.ToList();
         }
     }
 }
