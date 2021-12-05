@@ -55,35 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BancoEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BancoEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BancoEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BancoEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BancoEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BancoEntities.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Conta.cs">
-      <DependentUpon>BancoEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Correntista.cs">
-      <DependentUpon>BancoEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Lancamentos.cs">
-      <DependentUpon>BancoEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,13 +72,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="BancoEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BancoEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="BancoEntities.edmx.diagram">
-      <DependentUpon>BancoEntities.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,18 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BancoEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BancoEntities.Context.cs</LastGenOutput>
-      <DependentUpon>BancoEntities.edmx</DependentUpon>
-    </Content>
-    <Content Include="BancoEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BancoEntities.edmx</DependentUpon>
-      <LastGenOutput>BancoEntities.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

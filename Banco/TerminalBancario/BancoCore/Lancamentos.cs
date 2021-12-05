@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TerminalBacarioDesktop
+namespace BancoCore
 {
     using System;
     using System.Collections.Generic;
