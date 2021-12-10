@@ -8,20 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TerminalBacarioDesktop
+namespace TerminalBacarioDesktop.views
 {
-    public partial class Trasnferencias : MetroFramework.Forms.MetroForm
+    public partial class Transferencias : MetroFramework.Forms.MetroForm
     {
-        public Trasnferencias()
+        public Transferencias()
         {
             InitializeComponent();
         }
 
-        private void Trasnferencias_Load(object sender, EventArgs e)
+        private void Transferencias_Load(object sender, EventArgs e)
         {
 
         }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys key)
         {
             switch (key)

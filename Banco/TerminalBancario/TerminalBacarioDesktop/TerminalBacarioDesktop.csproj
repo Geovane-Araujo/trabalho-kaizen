@@ -66,30 +66,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extrato.cs">
+    <Compile Include="views\Extrato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Extrato.Designer.cs">
+    <Compile Include="views\Extrato.Designer.cs">
       <DependentUpon>Extrato.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="views\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
+    <Compile Include="views\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trasnferencias.cs">
+    <Compile Include="views\Saldos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Trasnferencias.Designer.cs">
-      <DependentUpon>Trasnferencias.cs</DependentUpon>
+    <Compile Include="views\Saldos.Designer.cs">
+      <DependentUpon>Saldos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Extrato.resx">
+    <Compile Include="views\Saques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Saques.Designer.cs">
+      <DependentUpon>Saques.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Transferencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Transferencias.Designer.cs">
+      <DependentUpon>Transferencias.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="views\Extrato.resx">
       <DependentUpon>Extrato.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
+    <EmbeddedResource Include="views\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -101,8 +113,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Trasnferencias.resx">
-      <DependentUpon>Trasnferencias.cs</DependentUpon>
+    <EmbeddedResource Include="views\Saldos.resx">
+      <DependentUpon>Saldos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Saques.resx">
+      <DependentUpon>Saques.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Transferencias.resx">
+      <DependentUpon>Transferencias.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

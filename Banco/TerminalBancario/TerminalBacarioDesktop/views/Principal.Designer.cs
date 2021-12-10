@@ -55,6 +55,7 @@ namespace TerminalBacarioDesktop
             this.btn_saldos.Size = new System.Drawing.Size(373, 59);
             this.btn_saldos.TabIndex = 1;
             this.btn_saldos.Text = "Saldos (F6)";
+            this.btn_saldos.Click += new System.EventHandler(this.btn_saldos_Click);
             // 
             // metroButton2
             // 
@@ -64,6 +65,7 @@ namespace TerminalBacarioDesktop
             this.metroButton2.Size = new System.Drawing.Size(373, 59);
             this.metroButton2.TabIndex = 2;
             this.metroButton2.Text = "Saques (F9)";
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // btn_extratos
             // 
@@ -99,6 +101,7 @@ namespace TerminalBacarioDesktop
             this.btn_transferencias.Size = new System.Drawing.Size(373, 59);
             this.btn_transferencias.TabIndex = 5;
             this.btn_transferencias.Text = "Transferencias (F8)";
+            this.btn_transferencias.Click += new System.EventHandler(this.btn_transferencias_Click);
             // 
             // form_terminal
             // 

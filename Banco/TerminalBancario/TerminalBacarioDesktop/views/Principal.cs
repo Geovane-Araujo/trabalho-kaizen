@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TerminalBacarioDesktop.views;
 
 namespace TerminalBacarioDesktop
 {
@@ -51,6 +52,18 @@ namespace TerminalBacarioDesktop
                     Extrato extrato = new Extrato();
                     extrato.Show();
                     break;
+                case Keys.F9:
+                    Saques saques = new Saques();
+                    saques.Show();
+                    break;
+                case Keys.F6:
+                    Saldos saldos = new Saldos();
+                    saldos.Show();
+                    break;
+                case Keys.F8:
+                    Transferencias transferencias = new Transferencias();
+                    transferencias.Show();
+                    break;
                 default:
                     break;
             }
@@ -62,6 +75,24 @@ namespace TerminalBacarioDesktop
         {
             Extrato extrato = new Extrato();
             extrato.Show();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            Saques saques = new Saques();
+            saques.Show();
+        }
+
+        private void btn_saldos_Click(object sender, EventArgs e)
+        {
+            Saldos saldos = new Saldos();
+            saldos.Show();
+        }
+
+        private void btn_transferencias_Click(object sender, EventArgs e)
+        {
+            Transferencias transferencias = new Transferencias();
+            transferencias.Show();
         }
     }
 }
