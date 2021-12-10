@@ -14,13 +14,20 @@ namespace TerminalBacarioDesktop
 {
     public partial class form_terminal : MetroFramework.Forms.MetroForm
     {
+        public string nome = "";
         public form_terminal()
         {
+            InitializeComponent();
+        }
+        public form_terminal(string nome)
+        {
+            this.nome = nome;
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            label_nome.Text = "Olá "+nome+" Seja bem Vindo";
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -38,15 +45,7 @@ namespace TerminalBacarioDesktop
             switch (key)
             {
                 case Keys.F5:
-                    String senha = Interaction.InputBox("Informe a senha para fechar a aplicação!", "Terminal Bancário");
-                    if (senha.Equals("123"))
-                    {
-                        Application.Exit();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Senha Inválida");
-                    }
+                    this.Close();
                     break;
                 case Keys.F7:
                     Extrato extrato = new Extrato();
@@ -93,6 +92,11 @@ namespace TerminalBacarioDesktop
         {
             Transferencias transferencias = new Transferencias();
             transferencias.Show();
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

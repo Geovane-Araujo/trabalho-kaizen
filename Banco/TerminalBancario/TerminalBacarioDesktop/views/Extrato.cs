@@ -35,5 +35,10 @@ namespace TerminalBacarioDesktop
 
             return base.ProcessCmdKey(ref msg, key);
         }
+
+        private void htmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

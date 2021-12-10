@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TerminalBacarioDesktop.views;
 
 namespace TerminalBacarioDesktop
 {
@@ -16,7 +14,7 @@ namespace TerminalBacarioDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_terminal());
+            Application.Run(new Login());
         }
     }
 }

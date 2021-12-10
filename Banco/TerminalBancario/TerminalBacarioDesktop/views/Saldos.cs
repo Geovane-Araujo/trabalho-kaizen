@@ -28,11 +28,27 @@ namespace TerminalBacarioDesktop.views
                 case Keys.F5:
                     this.Close();
                     break;
+                case Keys.F1:
+                    break;
+                case Keys.F2:
+                    Transferencias transferencias = new Transferencias();
+                    transferencias.Show();
+                    break;
                 default:
                     break;
             }
 
             return base.ProcessCmdKey(ref msg, key);
+        }
+
+        private void htmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

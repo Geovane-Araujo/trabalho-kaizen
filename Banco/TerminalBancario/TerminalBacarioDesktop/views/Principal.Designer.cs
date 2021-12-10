@@ -29,7 +29,7 @@ namespace TerminalBacarioDesktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_nome = new System.Windows.Forms.Label();
             this.btn_saldos = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.btn_extratos = new MetroFramework.Controls.MetroButton();
@@ -38,15 +38,15 @@ namespace TerminalBacarioDesktop
             this.btn_transferencias = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
-            // label1
+            // label_nome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(328, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Olá Geovane Seja bem Vindo";
+            this.label_nome.AutoSize = true;
+            this.label_nome.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nome.Location = new System.Drawing.Point(23, 77);
+            this.label_nome.Name = "label_nome";
+            this.label_nome.Size = new System.Drawing.Size(328, 32);
+            this.label_nome.TabIndex = 0;
+            this.label_nome.Text = "Olá Geovane Seja bem Vindo";
             // 
             // btn_saldos
             // 
@@ -55,6 +55,7 @@ namespace TerminalBacarioDesktop
             this.btn_saldos.Size = new System.Drawing.Size(373, 59);
             this.btn_saldos.TabIndex = 1;
             this.btn_saldos.Text = "Saldos (F6)";
+            this.btn_saldos.UseSelectable = true;
             this.btn_saldos.Click += new System.EventHandler(this.btn_saldos_Click);
             // 
             // metroButton2
@@ -65,6 +66,7 @@ namespace TerminalBacarioDesktop
             this.metroButton2.Size = new System.Drawing.Size(373, 59);
             this.metroButton2.TabIndex = 2;
             this.metroButton2.Text = "Saques (F9)";
+            this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // btn_extratos
@@ -74,6 +76,7 @@ namespace TerminalBacarioDesktop
             this.btn_extratos.Size = new System.Drawing.Size(373, 59);
             this.btn_extratos.TabIndex = 3;
             this.btn_extratos.Text = "Extratos  (F7)";
+            this.btn_extratos.UseSelectable = true;
             this.btn_extratos.Click += new System.EventHandler(this.btn_extratos_Click);
             // 
             // metroButton4
@@ -84,6 +87,7 @@ namespace TerminalBacarioDesktop
             this.metroButton4.Size = new System.Drawing.Size(373, 59);
             this.metroButton4.TabIndex = 4;
             this.metroButton4.Text = "Pix";
+            this.metroButton4.UseSelectable = true;
             // 
             // metroButton5
             // 
@@ -92,7 +96,9 @@ namespace TerminalBacarioDesktop
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(373, 59);
             this.metroButton5.TabIndex = 6;
-            this.metroButton5.Text = "Segurança";
+            this.metroButton5.Text = "Sair (F5)";
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
             // btn_transferencias
             // 
@@ -101,6 +107,7 @@ namespace TerminalBacarioDesktop
             this.btn_transferencias.Size = new System.Drawing.Size(373, 59);
             this.btn_transferencias.TabIndex = 5;
             this.btn_transferencias.Text = "Transferencias (F8)";
+            this.btn_transferencias.UseSelectable = true;
             this.btn_transferencias.Click += new System.EventHandler(this.btn_transferencias_Click);
             // 
             // form_terminal
@@ -116,7 +123,7 @@ namespace TerminalBacarioDesktop
             this.Controls.Add(this.btn_extratos);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.btn_saldos);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_nome);
             this.Name = "form_terminal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Terminal Bancario";
@@ -129,7 +136,7 @@ namespace TerminalBacarioDesktop
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_nome;
         private MetroFramework.Controls.MetroButton btn_saldos;
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton btn_extratos;
