@@ -48,7 +48,9 @@ namespace BancoCore
             }
 
             var lancamentoSaida = new Lancamentos(0, valor, contaOrigemId);
+            lancamentoSaida.Historico = $"Conta {contaDestinoId}. Data {DateTime.Now}. Valor: {valor}";
             var lancamentoEntrada = new Lancamentos(1, valor, contaDestinoId);
+            lancamentoEntrada.Historico = $"Conta {contaOrigemId}. Data {DateTime.Now}. Valor: {valor}";
             var contaEntrada = _entities.Conta.FirstOrDefault(f => f.Id == contaDestinoId);
 
             decimal valorFaltante = 0;
