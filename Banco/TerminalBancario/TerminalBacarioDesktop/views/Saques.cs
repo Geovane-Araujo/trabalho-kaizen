@@ -52,43 +52,9 @@ namespace TerminalBacarioDesktop.views
 
         private void metroButton1_Click_1(object sender, EventArgs e)
         {
-            LancamentoRepository repo = new LancamentoRepository();
             ContaRepository contaRepo = new ContaRepository();
 
-            Lancamentos lancamentos = new Lancamentos();
-
-
-            Conta conta = new Conta();
-            conta = repo.GetByID(Convert.ToInt32(txt_numeroConta.Text));
-
-            
-            decimal valor = Convert.ToDecimal(txt_valor.Text);
-
-            if(valor < conta.Saldo)
-            {
-                conta.Saldo -= valor;
-            }
-            else if(valor > conta.Saldo && valor < conta.LimiteCredito)
-            {
-                decimal aux = 0;
-                aux = (valor - conta.Saldo);
-                conta.Saldo = 0;
-                conta.LimiteCredito -= aux;
-            } else
-            {
-                MessageBox.Show("Saldo Insulficiente");
-                return;
-            }
-
-
-            lancamentos.Data = DateTime.Now;
-            lancamentos.Valor = valor;
-            lancamentos.Operacao = 1;
-            lancamentos.Historico = " Saque no Auto atendimento dia " + DateTime.Now.ToString("dd/MM/yyyy");
-
-            conta.Lancamentos.Add(lancamentos);
-
-            contaRepo.Saque(conta);
+            MessageBox.Show(contaRepo.Saque(int.Parse(txt_numeroConta.Text), decimal.Parse(txt_valor.Text)));
 
         }
     }

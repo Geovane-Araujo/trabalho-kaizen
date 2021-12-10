@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BancoCore
@@ -12,10 +13,47 @@ namespace BancoCore
             _entities = new bancodbEntities();
         }
 
-        public void Saque(Conta conta)
+        public string Saque(int contaId, decimal valorSacado)
         {
-            _entities.Conta.Add(conta);
-            _entities.SaveChanges();
+            try
+            {
+                var lancamentos = new Lancamentos();
+
+                var conta = _entities.Conta.FirstOrDefault(f => f.Id == contaId);
+
+                if (valorSacado < conta.Saldo)
+                {
+                    conta.Saldo -= valorSacado;
+                }
+                else if (valorSacado > conta.Saldo && valorSacado < conta.LimiteCredito)
+                {
+                    decimal aux = 0;
+                    aux = (valorSacado - conta.Saldo);
+                    conta.Saldo = 0;
+                    conta.LimiteCredito -= aux;
+                }
+                else
+                {
+                    return "Saldo Insulficiente";
+                }
+
+
+                lancamentos.Data = DateTime.Now;
+                lancamentos.Valor = valorSacado;
+                lancamentos.Operacao = 1;
+                lancamentos.Historico = " Saque no Auto atendimento dia " + DateTime.Now.ToString("dd/MM/yyyy");
+
+                conta.Lancamentos.Add(lancamentos);
+
+                _entities.SaveChanges();
+
+                return lancamentos.Historico;
+             
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         public void InsereConta()

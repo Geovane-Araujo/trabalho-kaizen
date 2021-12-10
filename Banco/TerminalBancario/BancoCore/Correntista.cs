@@ -11,7 +11,8 @@ namespace BancoCore
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Correntista
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,12 +23,17 @@ namespace BancoCore
 
         public Correntista(string cpf, string nome)
         {
-            CPF = cpf;
-            Nome = nome;
+            this.Conta = new HashSet<Conta>();
+            this.CPF = cpf;
+            this.Nome = nome;
         }
 
         public int Id { get; set; }
+        [Required]
+        [StringLength(14, MinimumLength = 14, ErrorMessage = "CPF deve ter 15 caracteres")]
         public string CPF { get; set; }
+        [Required]
+        [StringLength(50, MinimumLength = 15, ErrorMessage = "Nome deve ter entre 15 e 50 caracteres")]
         public string Nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

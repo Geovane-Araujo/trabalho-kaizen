@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
 namespace BancoCore
 {
-
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Lancamentos
     {
         public int Id { get; set; }
@@ -32,6 +32,4 @@ namespace BancoCore
 
         public Lancamentos() { }
     }
-
-
 }
