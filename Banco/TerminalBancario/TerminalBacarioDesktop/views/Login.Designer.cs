@@ -30,12 +30,12 @@ namespace TerminalBacarioDesktop.views
         private void InitializeComponent()
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txt_cpf = new System.Windows.Forms.MaskedTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@ namespace TerminalBacarioDesktop.views
             this.metroPanel1.Controls.Add(this.metroButton1);
             this.metroPanel1.Controls.Add(this.textBox1);
             this.metroPanel1.Controls.Add(this.metroLabel2);
-            this.metroPanel1.Controls.Add(this.maskedTextBox1);
+            this.metroPanel1.Controls.Add(this.txt_cpf);
             this.metroPanel1.Controls.Add(this.metroLabel1);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
@@ -59,6 +59,18 @@ namespace TerminalBacarioDesktop.views
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // htmlLabel1
+            // 
+            this.htmlLabel1.AutoScroll = true;
+            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(219, 48);
+            this.htmlLabel1.AutoSize = false;
+            this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlLabel1.Location = new System.Drawing.Point(22, 14);
+            this.htmlLabel1.Name = "htmlLabel1";
+            this.htmlLabel1.Size = new System.Drawing.Size(294, 76);
+            this.htmlLabel1.TabIndex = 10;
+            this.htmlLabel1.Text = "<div>Banco TSharp</div>";
             // 
             // metroButton1
             // 
@@ -87,13 +99,14 @@ namespace TerminalBacarioDesktop.views
             this.metroLabel2.TabIndex = 7;
             this.metroLabel2.Text = "Senha";
             // 
-            // maskedTextBox1
+            // txt_cpf
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(22, 124);
-            this.maskedTextBox1.Mask = "999.999.999-99";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(294, 20);
-            this.maskedTextBox1.TabIndex = 6;
+            this.txt_cpf.Location = new System.Drawing.Point(22, 124);
+            this.txt_cpf.Mask = "999.999.999-99";
+            this.txt_cpf.Name = "txt_cpf";
+            this.txt_cpf.Size = new System.Drawing.Size(294, 20);
+            this.txt_cpf.TabIndex = 6;
+            this.txt_cpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // metroLabel1
             // 
@@ -103,18 +116,6 @@ namespace TerminalBacarioDesktop.views
             this.metroLabel1.Size = new System.Drawing.Size(33, 19);
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "CPF";
-            // 
-            // htmlLabel1
-            // 
-            this.htmlLabel1.AutoScroll = true;
-            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(219, 48);
-            this.htmlLabel1.AutoSize = false;
-            this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel1.Location = new System.Drawing.Point(22, 14);
-            this.htmlLabel1.Name = "htmlLabel1";
-            this.htmlLabel1.Size = new System.Drawing.Size(294, 76);
-            this.htmlLabel1.TabIndex = 10;
-            this.htmlLabel1.Text = "<div>Banco TSharp</div>";
             // 
             // Login
             // 
@@ -146,7 +147,7 @@ namespace TerminalBacarioDesktop.views
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txt_cpf;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
     }

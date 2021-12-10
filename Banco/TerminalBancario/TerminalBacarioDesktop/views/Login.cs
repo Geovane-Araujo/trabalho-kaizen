@@ -68,9 +68,30 @@ namespace TerminalBacarioDesktop.views
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            CorrentistaRepository repo = new CorrentistaRepository();
 
-            form_terminal principal = new form_terminal("Edna");
-            principal.Show();
+            List<Correntista> correntistas = repo.GetAll();
+            Correntista conta = new Correntista();
+
+            bool contem = false;
+            correntistas.ForEach(delegate (Correntista co)
+            {
+                if (co.CPF.Replace(" ","").Equals(txt_cpf.Text))
+                {
+                    conta = co;
+                    contem = true;
+                }
+            });
+            if (conta.CPF != null)
+            {
+                form_terminal principal = new form_terminal(conta);
+                principal.Show();
+            }
+            else
+            {
+                MessageBox.Show("Cpf ou senha incálidos");
+            }
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,30 @@ namespace TerminalBacarioDesktop
 {
     public partial class Extrato : MetroFramework.Forms.MetroForm
     {
+        Correntista correntista = new Correntista();
         public Extrato()
         {
             InitializeComponent();
         }
 
+        public Extrato(Correntista correntista)
+        {
+            this.correntista = correntista;
+            InitializeComponent();
+
+        }
+
         private void Extrato_Load(object sender, EventArgs e)
         {
 
+            foreach(Conta co in correntista.Conta)
+            {
+                foreach(Lancamentos la in co.Lancamentos)
+                {
+                    table_lancamentos.Rows.Add(la.Data,la.Historico,la.Valor,la.Operacao);
+                }
+            }
+            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys key)
@@ -39,6 +56,11 @@ namespace TerminalBacarioDesktop
         private void htmlLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using BancoCore;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,10 +25,15 @@ namespace TerminalBacarioDesktop
             this.nome = nome;
             InitializeComponent();
         }
+        public form_terminal(Correntista correntista)
+        {
+            this.nome = correntista.Nome;
+            InitializeComponent();
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label_nome.Text = "Olá "+nome+" Seja bem Vindo";
+            label_nome.Text = "Olá "+nome.Replace(" ","")+" Seja bem Vindo";
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -96,7 +102,7 @@ namespace TerminalBacarioDesktop
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
