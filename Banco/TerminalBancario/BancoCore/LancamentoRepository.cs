@@ -19,5 +19,21 @@ namespace BancoCore
         {
             return _entities.Lancamentos.Where(f => f.Data > DateTime.Now.AddDays(-30)).Where(f => f.ContaId == idconta).ToList();
         }
+
+        public Conta GetByID(int id)
+        {
+            var correntista = _entities.Conta.FirstOrDefault(f => f.Id == id);
+            if (correntista != null)
+            {
+                return correntista;
+            }
+            else { return new Conta(); }
+        }
+
+        public void Saque(Conta conta)
+        {
+            _entities.Conta.Add(conta);
+            _entities.SaveChanges();
+        }
     }
 }
