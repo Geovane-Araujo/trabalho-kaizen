@@ -30,11 +30,13 @@
         {
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.contaOrigemTxt = new System.Windows.Forms.MaskedTextBox();
+            this.valorDestinoTxt = new System.Windows.Forms.MaskedTextBox();
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.contaDestinoTxt = new System.Windows.Forms.MaskedTextBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -42,9 +44,9 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(23, 127);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(106, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(141, 19);
             this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "CPF Destinatário";
+            this.metroLabel1.Text = "Numero conta origem";
             // 
             // metroLabel2
             // 
@@ -55,21 +57,19 @@
             this.metroLabel2.TabIndex = 2;
             this.metroLabel2.Text = "Valor";
             // 
-            // maskedTextBox1
+            // contaOrigemTxt
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(23, 152);
-            this.maskedTextBox1.Mask = "999.999.999-99";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox1.TabIndex = 5;
+            this.contaOrigemTxt.Location = new System.Drawing.Point(23, 152);
+            this.contaOrigemTxt.Name = "contaOrigemTxt";
+            this.contaOrigemTxt.Size = new System.Drawing.Size(200, 20);
+            this.contaOrigemTxt.TabIndex = 5;
             // 
-            // maskedTextBox2
+            // valorDestinoTxt
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(252, 152);
-            this.maskedTextBox2.Mask = "$ 99999999,00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(200, 20);
-            this.maskedTextBox2.TabIndex = 6;
+            this.valorDestinoTxt.Location = new System.Drawing.Point(252, 152);
+            this.valorDestinoTxt.Name = "valorDestinoTxt";
+            this.valorDestinoTxt.Size = new System.Drawing.Size(200, 20);
+            this.valorDestinoTxt.TabIndex = 6;
             // 
             // htmlLabel1
             // 
@@ -79,9 +79,9 @@
             this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(273, 48);
             this.htmlLabel1.AutoSize = false;
             this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel1.Location = new System.Drawing.Point(23, 201);
+            this.htmlLabel1.Location = new System.Drawing.Point(23, 226);
             this.htmlLabel1.Name = "htmlLabel1";
-            this.htmlLabel1.Size = new System.Drawing.Size(823, 232);
+            this.htmlLabel1.Size = new System.Drawing.Size(823, 196);
             this.htmlLabel1.TabIndex = 7;
             this.htmlLabel1.Text = "Joaquim da Simla";
             // 
@@ -108,17 +108,36 @@
             this.metroButton1.TabIndex = 10;
             this.metroButton1.Text = "Confirmar (F1)";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // contaDestinoTxt
+            // 
+            this.contaDestinoTxt.Location = new System.Drawing.Point(23, 200);
+            this.contaDestinoTxt.Name = "contaDestinoTxt";
+            this.contaDestinoTxt.Size = new System.Drawing.Size(200, 20);
+            this.contaDestinoTxt.TabIndex = 12;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(23, 175);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(140, 19);
+            this.metroLabel3.TabIndex = 11;
+            this.metroLabel3.Text = "Numero conta destino";
             // 
             // Transferencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 507);
+            this.Controls.Add(this.contaDestinoTxt);
+            this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.htmlLabel1);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.valorDestinoTxt);
+            this.Controls.Add(this.contaOrigemTxt);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
@@ -139,10 +158,12 @@
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox contaOrigemTxt;
+        private System.Windows.Forms.MaskedTextBox valorDestinoTxt;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.MaskedTextBox contaDestinoTxt;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

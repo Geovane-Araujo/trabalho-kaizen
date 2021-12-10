@@ -49,8 +49,22 @@ namespace BancoCore
 
             var lancamentoSaida = new Lancamentos(0, valor, contaOrigemId);
             var lancamentoEntrada = new Lancamentos(1, valor, contaDestinoId);
+            var contaEntrada = _entities.Conta.FirstOrDefault(f => f.Id == contaDestinoId);
+
+            decimal valorFaltante = 0;
+
+            if (contaSaida.Saldo < valor)
+            {
+                valorFaltante = contaSaida.Saldo - valor;
+            }
+
+
+            contaSaida.Saldo = contaSaida.Saldo - (valor-valorFaltante);
+            contaSaida.LimiteCredito = contaSaida.LimiteCredito - valorFaltante;
+            contaEntrada.Saldo += valor;
 
             _entities.Lancamentos.AddRange(new Lancamentos[] {lancamentoSaida, lancamentoEntrada});
+
             _entities.SaveChanges();
             return "Transferência realizada com sucesso";
         }
