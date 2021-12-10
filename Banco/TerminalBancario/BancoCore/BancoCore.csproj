@@ -84,6 +84,7 @@
     <Compile Include="Conta.cs">
       <DependentUpon>BancoEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="ContaRepository.cs" />
     <Compile Include="Correntista.cs">
       <DependentUpon>BancoEntities.tt</DependentUpon>
     </Compile>
@@ -93,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LancamentoRepository.cs" />
     <Compile Include="Lancamentos.cs">
       <DependentUpon>BancoEntities.tt</DependentUpon>
     </Compile>
