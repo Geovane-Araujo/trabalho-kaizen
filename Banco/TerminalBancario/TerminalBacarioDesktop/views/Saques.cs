@@ -53,6 +53,7 @@ namespace TerminalBacarioDesktop.views
         private void metroButton1_Click_1(object sender, EventArgs e)
         {
             LancamentoRepository repo = new LancamentoRepository();
+            ContaRepository contaRepo = new ContaRepository();
 
             Lancamentos lancamentos = new Lancamentos();
 
@@ -87,7 +88,7 @@ namespace TerminalBacarioDesktop.views
 
             conta.Lancamentos.Add(lancamentos);
 
-            repo.Saque(conta);
+            contaRepo.Saque(conta);
 
         }
     }

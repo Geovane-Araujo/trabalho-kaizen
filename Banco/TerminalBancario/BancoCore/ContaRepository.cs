@@ -14,7 +14,7 @@ namespace BancoCore
 
         public void InsereConta()
         {
-            var correntista = new Conta();
+            var conta = new Conta();
             _entities.Conta.Add(correntista);
             _entities.SaveChanges();
         }
