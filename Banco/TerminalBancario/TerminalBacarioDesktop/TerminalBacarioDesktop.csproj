@@ -147,5 +147,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BancoCore\BancoCore.csproj">
+      <Project>{BB7AEEDE-DB55-4F1A-BF16-B1FBADFF4AC3}</Project>
+      <Name>BancoCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

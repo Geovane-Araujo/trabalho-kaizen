@@ -1,12 +1,8 @@
-﻿using Microsoft.VisualBasic;
+﻿using BancoCore;
+using Microsoft.VisualBasic;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TerminalBacarioDesktop.views
@@ -20,6 +16,22 @@ namespace TerminalBacarioDesktop.views
 
         private void Login_Load(object sender, EventArgs e)
         {
+            CorrentistaRepository repo = new CorrentistaRepository();
+
+            List<Correntista> correntistas = repo.GetAll();
+            if(correntistas.Count == 0)
+            {
+                Hashtable hash = new Hashtable();
+
+                hash.Add("Geovane Araújo", "11111111111");
+                hash.Add("Reinaldo", "22222222222");
+
+                foreach (DictionaryEntry en in hash)
+                {
+                    repo.InsereCorrentista(en.Value.ToString(), en.Key.ToString());
+                }
+            }
+            
 
         }
 
@@ -56,6 +68,7 @@ namespace TerminalBacarioDesktop.views
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+
             form_terminal principal = new form_terminal("Edna");
             principal.Show();
         }

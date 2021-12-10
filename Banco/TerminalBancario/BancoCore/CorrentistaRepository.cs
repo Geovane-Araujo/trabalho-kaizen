@@ -7,25 +7,31 @@ namespace BancoCore
     public class CorrentistaRepository
     {
         private readonly bancodbEntities _entities;
+        Random randNum = new Random();
+        Conta conta = new Conta();
         public CorrentistaRepository()
         {
             _entities = new bancodbEntities();
         }
 
+
         public void InsereCorrentista(string cpf, string nome)
         {
             var correntista = new Correntista(cpf, nome);
-            _entities.Correntista.Add(correntista);
-            _entities.SaveChanges();
-            Random randNum = new Random();
 
             Conta conta = new Conta();
-            conta.CorrentistaId = correntista.Id;
             conta.LimiteCredito = Convert.ToDecimal(randNum.Next(100, 1000));
             conta.DataAbertura = DateTime.Now;
             conta.Saldo = Convert.ToDecimal(randNum.Next(3000));
-            _entities.Conta.Add(conta);
+
+            List<Conta> co = new List<Conta>();
+            co.Add(conta);
+
+            correntista.Conta = co;
+            _entities.Correntista.Add(correntista);
             _entities.SaveChanges();
+
+            
         }
 
         public void AtualizaCorrentista(int id, string novoCpf, string novoNome)
