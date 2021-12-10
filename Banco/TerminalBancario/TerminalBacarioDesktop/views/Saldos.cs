@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,34 @@ namespace TerminalBacarioDesktop.views
 {
     public partial class Saldos : MetroFramework.Forms.MetroForm
     {
+        int idCOnta = 1;
         public Saldos()
         {
             InitializeComponent();
         }
 
+        public Saldos(int id)
+        {
+            idCOnta = id;
+            InitializeComponent();
+        }
+
         private void Saldos_Load(object sender, EventArgs e)
         {
+            CorrentistaRepository repo = new CorrentistaRepository();
+
+            Correntista correntista = repo.GetByID(idCOnta);
+            decimal limite = 0;
+            decimal saldo = 0;
+
+            foreach (Conta co in correntista.Conta)
+            {
+                saldo += co.Saldo;
+                limite += co.LimiteCredito;
+            }
+
+            txt_limite.Text = "R$ " + limite.ToString("c2");
+            txt_atual.Text = "R$ " + saldo.ToString("c2");
 
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys key)

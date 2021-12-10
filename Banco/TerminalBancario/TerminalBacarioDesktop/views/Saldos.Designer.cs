@@ -35,17 +35,15 @@ namespace TerminalBacarioDesktop.views
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
-            this.htmlLabel2 = new MetroFramework.Drawing.Html.HtmlLabel();
-            this.htmlLabel3 = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.txt_limite = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.txt_atual = new MetroFramework.Drawing.Html.HtmlLabel();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroButton1
             // 
-            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton1.Location = new System.Drawing.Point(23, 391);
+            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroButton1.Location = new System.Drawing.Point(23, 458);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(163, 36);
             this.metroButton1.TabIndex = 0;
@@ -55,10 +53,8 @@ namespace TerminalBacarioDesktop.views
             // 
             // metroButton2
             // 
-            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton2.Location = new System.Drawing.Point(204, 391);
+            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroButton2.Location = new System.Drawing.Point(204, 458);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(163, 36);
             this.metroButton2.TabIndex = 1;
@@ -67,10 +63,8 @@ namespace TerminalBacarioDesktop.views
             // 
             // metroLabel1
             // 
-            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(14, 283);
+            this.metroLabel1.Location = new System.Drawing.Point(14, 316);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(76, 19);
             this.metroLabel1.TabIndex = 2;
@@ -78,8 +72,6 @@ namespace TerminalBacarioDesktop.views
             // 
             // metroLabel2
             // 
-            this.metroLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(14, 79);
             this.metroLabel2.Name = "metroLabel2";
@@ -89,10 +81,8 @@ namespace TerminalBacarioDesktop.views
             // 
             // metroLabel3
             // 
-            this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(14, 170);
+            this.metroLabel3.Location = new System.Drawing.Point(14, 183);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(111, 19);
             this.metroLabel3.TabIndex = 4;
@@ -100,53 +90,45 @@ namespace TerminalBacarioDesktop.views
             // 
             // htmlLabel1
             // 
-            this.htmlLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.htmlLabel1.AutoScroll = true;
             this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(124, 48);
             this.htmlLabel1.AutoSize = false;
             this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.htmlLabel1.Location = new System.Drawing.Point(23, 110);
             this.htmlLabel1.Name = "htmlLabel1";
-            this.htmlLabel1.Size = new System.Drawing.Size(216, 57);
+            this.htmlLabel1.Size = new System.Drawing.Size(216, 70);
             this.htmlLabel1.TabIndex = 5;
             this.htmlLabel1.Text = "R$ 0,00";
             // 
-            // htmlLabel2
+            // txt_limite
             // 
-            this.htmlLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.htmlLabel2.AutoScroll = true;
-            this.htmlLabel2.AutoScrollMinSize = new System.Drawing.Size(124, 48);
-            this.htmlLabel2.AutoSize = false;
-            this.htmlLabel2.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel2.ForeColor = System.Drawing.Color.Red;
-            this.htmlLabel2.Location = new System.Drawing.Point(23, 211);
-            this.htmlLabel2.Name = "htmlLabel2";
-            this.htmlLabel2.Size = new System.Drawing.Size(216, 57);
-            this.htmlLabel2.TabIndex = 6;
-            this.htmlLabel2.Text = "R$ 0,00";
+            this.txt_limite.AutoScroll = true;
+            this.txt_limite.AutoScrollMinSize = new System.Drawing.Size(124, 48);
+            this.txt_limite.AutoSize = false;
+            this.txt_limite.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_limite.ForeColor = System.Drawing.Color.Red;
+            this.txt_limite.Location = new System.Drawing.Point(23, 224);
+            this.txt_limite.Name = "txt_limite";
+            this.txt_limite.Size = new System.Drawing.Size(235, 89);
+            this.txt_limite.TabIndex = 6;
+            this.txt_limite.Text = "R$ 0,00";
             // 
-            // htmlLabel3
+            // txt_atual
             // 
-            this.htmlLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.htmlLabel3.AutoScroll = true;
-            this.htmlLabel3.AutoScrollMinSize = new System.Drawing.Size(124, 48);
-            this.htmlLabel3.AutoSize = false;
-            this.htmlLabel3.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel3.Location = new System.Drawing.Point(23, 314);
-            this.htmlLabel3.Name = "htmlLabel3";
-            this.htmlLabel3.Size = new System.Drawing.Size(216, 57);
-            this.htmlLabel3.TabIndex = 7;
-            this.htmlLabel3.Text = "R$ 0,00";
+            this.txt_atual.AutoScroll = true;
+            this.txt_atual.AutoScrollMinSize = new System.Drawing.Size(124, 48);
+            this.txt_atual.AutoSize = false;
+            this.txt_atual.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_atual.Location = new System.Drawing.Point(23, 347);
+            this.txt_atual.Name = "txt_atual";
+            this.txt_atual.Size = new System.Drawing.Size(216, 85);
+            this.txt_atual.TabIndex = 7;
+            this.txt_atual.Text = "R$ 0,00";
             // 
             // metroButton3
             // 
-            this.metroButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton3.Location = new System.Drawing.Point(384, 391);
+            this.metroButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroButton3.Location = new System.Drawing.Point(384, 458);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(163, 36);
             this.metroButton3.TabIndex = 8;
@@ -157,10 +139,10 @@ namespace TerminalBacarioDesktop.views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 517);
             this.Controls.Add(this.metroButton3);
-            this.Controls.Add(this.htmlLabel3);
-            this.Controls.Add(this.htmlLabel2);
+            this.Controls.Add(this.txt_atual);
+            this.Controls.Add(this.txt_limite);
             this.Controls.Add(this.htmlLabel1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
@@ -170,7 +152,7 @@ namespace TerminalBacarioDesktop.views
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Saldos";
-            this.Text = "Saldos";
+            this.Text = "Saldos de Todas as Contas";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Saldos_Load);
@@ -187,8 +169,8 @@ namespace TerminalBacarioDesktop.views
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
-        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel2;
-        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel3;
+        private MetroFramework.Drawing.Html.HtmlLabel txt_limite;
+        private MetroFramework.Drawing.Html.HtmlLabel txt_atual;
         private MetroFramework.Controls.MetroButton metroButton3;
     }
 }
