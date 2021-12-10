@@ -88,10 +88,20 @@
       <DependentUpon>BancoEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CorrentistaRepository.cs" />
+    <Compile Include="DataBaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Lancamentos.cs">
       <DependentUpon>BancoEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -102,7 +112,22 @@
     <None Include="BancoEntities.edmx.diagram">
       <DependentUpon>BancoEntities.edmx</DependentUpon>
     </None>
+    <None Include="DataBaseDataSet.xsc">
+      <DependentUpon>DataBaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataBaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataBaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataBaseDataSet.xss">
+      <DependentUpon>DataBaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -113,6 +138,7 @@
       <DependentUpon>BancoEntities.edmx</DependentUpon>
       <LastGenOutput>BancoEntities.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="BancoEntities.edmx.sql" />
     <Content Include="BancoEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BancoEntities.edmx</DependentUpon>

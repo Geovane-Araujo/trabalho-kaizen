@@ -4,75 +4,74 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bancodbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Conta">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CorrentistaId" Type="int" Nullable="false" />
-          <Property Name="LimiteCredito" Type="money" Nullable="false" />
-          <Property Name="Saldo" Type="money" Nullable="false" />
-          <Property Name="DataAbertura" Type="datetime" />
-        </EntityType>
-        <EntityType Name="Correntista">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CPF" Type="nchar" MaxLength="16" Nullable="false" />
-          <Property Name="Nome" Type="nchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Lancamentos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Data" Type="datetime" Nullable="false" />
-          <Property Name="ContaId" Type="int" Nullable="false" />
-          <Property Name="Operacao" Type="int" Nullable="false" />
-          <Property Name="Historico" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Valor" Type="money" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_ContaCorrentista">
-          <End Role="Correntista" Type="Self.Correntista" Multiplicity="1" />
-          <End Role="Conta" Type="Self.Conta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Correntista">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Conta">
-              <PropertyRef Name="CorrentistaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ContaLancamentos">
-          <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
-          <End Role="Lancamentos" Type="Self.Lancamentos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Conta">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Lancamentos">
-              <PropertyRef Name="ContaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="bancodbModelStoreContainer">
-          <EntitySet Name="Conta" EntityType="Self.Conta" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Correntista" EntityType="Self.Correntista" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Lancamentos" EntityType="Self.Lancamentos" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_ContaCorrentista" Association="Self.FK_ContaCorrentista">
-            <End Role="Correntista" EntitySet="Correntista" />
-            <End Role="Conta" EntitySet="Conta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ContaLancamentos" Association="Self.FK_ContaLancamentos">
-            <End Role="Conta" EntitySet="Conta" />
-            <End Role="Lancamentos" EntitySet="Lancamentos" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="bancodbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="bancodbModelStoreContainer">
+    <EntitySet Name="Conta" EntityType="bancodbModel.Store.Conta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Correntista" EntityType="bancodbModel.Store.Correntista" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lancamentos" EntityType="bancodbModel.Store.Lancamentos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ContaCorrentista" Association="bancodbModel.Store.FK_ContaCorrentista">
+      <End Role="Correntista" EntitySet="Correntista" />
+      <End Role="Conta" EntitySet="Conta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContaLancamentos" Association="bancodbModel.Store.FK_ContaLancamentos">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Lancamentos" EntitySet="Lancamentos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Conta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CorrentistaId" Type="int" Nullable="false" />
+    <Property Name="LimiteCredito" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Saldo" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DataAbertura" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Correntista">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CPF" Type="nchar" Nullable="false" MaxLength="16" />
+    <Property Name="Nome" Type="nchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Lancamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="ContaId" Type="int" Nullable="false" />
+    <Property Name="Operacao" Type="int" Nullable="false" />
+    <Property Name="Historico" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Valor" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <Association Name="FK_ContaCorrentista">
+    <End Role="Correntista" Type="bancodbModel.Store.Correntista" Multiplicity="1" />
+    <End Role="Conta" Type="bancodbModel.Store.Conta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Correntista">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Conta">
+        <PropertyRef Name="CorrentistaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContaLancamentos">
+    <End Role="Conta" Type="bancodbModel.Store.Conta" Multiplicity="1" />
+    <End Role="Lancamentos" Type="bancodbModel.Store.Lancamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lancamentos">
+        <PropertyRef Name="ContaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bancodbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -150,43 +149,42 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="bancodbModelStoreContainer" CdmEntityContainer="bancodbEntities">
-          <EntitySetMapping Name="Conta">
-            <EntityTypeMapping TypeName="bancodbModel.Conta">
-              <MappingFragment StoreEntitySet="Conta">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CorrentistaId" ColumnName="CorrentistaId" />
-                <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
-                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-                <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Correntista">
-            <EntityTypeMapping TypeName="bancodbModel.Correntista">
-              <MappingFragment StoreEntitySet="Correntista">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CPF" ColumnName="CPF" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Lancamentos">
-            <EntityTypeMapping TypeName="bancodbModel.Lancamentos">
-              <MappingFragment StoreEntitySet="Lancamentos">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
-                <ScalarProperty Name="Operacao" ColumnName="Operacao" />
-                <ScalarProperty Name="Historico" ColumnName="Historico" />
-                <ScalarProperty Name="Valor" ColumnName="Valor" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bancodbModelStoreContainer" CdmEntityContainer="bancodbEntities">
+    <EntitySetMapping Name="Conta">
+      <EntityTypeMapping TypeName="IsTypeOf(bancodbModel.Conta)">
+        <MappingFragment StoreEntitySet="Conta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CorrentistaId" ColumnName="CorrentistaId" />
+          <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correntista">
+      <EntityTypeMapping TypeName="IsTypeOf(bancodbModel.Correntista)">
+        <MappingFragment StoreEntitySet="Correntista">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lancamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(bancodbModel.Lancamentos)">
+        <MappingFragment StoreEntitySet="Lancamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+          <ScalarProperty Name="Operacao" ColumnName="Operacao" />
+          <ScalarProperty Name="Historico" ColumnName="Historico" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -200,7 +198,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

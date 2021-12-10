@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BancoCore
 {
@@ -32,8 +33,6 @@ namespace BancoCore
 
             if (correntista != null)
             {
-
-
                 foreach (var conta in from conta in correntista.Conta select conta)
                 {
                     _entities.Lancamentos.RemoveRange(conta.Lancamentos);
@@ -53,6 +52,11 @@ namespace BancoCore
                 return correntista;
             }
             else { return new Correntista(); }
+        }
+
+        public List<Correntista> GetAll()
+        {
+            return _entities.Correntista.ToList();
         }
     }
 }

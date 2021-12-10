@@ -7,7 +7,7 @@
       <Diagram DiagramId="65a4454427864999a833fb1aeb8ad37d" Name="Diagram1">
         <EntityTypeShape EntityType="bancodbModel.Conta" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="bancodbModel.Correntista" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bancodbModel.Lancamentos" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bancodbModel.Lancamentos" Width="1.5" PointX="6.375" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="bancodbModel.FK_ContaCorrentista" ManuallyRouted="false" />
         <AssociationConnector Association="bancodbModel.FK_ContaLancamentos" ManuallyRouted="false" />
       </Diagram>
