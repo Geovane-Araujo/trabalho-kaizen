@@ -1,13 +1,7 @@
 ﻿using BancoCore;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BancoCore;
 
 namespace TerminalBacarioDesktop
 {
@@ -28,15 +22,18 @@ namespace TerminalBacarioDesktop
 
         private void Extrato_Load(object sender, EventArgs e)
         {
+            listagemextrato();
+        }
 
-            foreach(Conta co in correntista.Conta)
+        public void listagemextrato()
+        {
+            LancamentoRepository lr = new LancamentoRepository();
+
+
+            foreach (Lancamentos la in lr.Extrato(Convert.ToInt32(txt_conta.Text)))
             {
-                foreach(Lancamentos la in co.Lancamentos)
-                {
-                    table_lancamentos.Rows.Add(la.Data,la.Historico,la.Valor,la.Operacao);
-                }
+                table_lancamentos.Rows.Add(la.Data, la.Historico, la.Valor, la.Operacao);
             }
-            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys key)
@@ -45,6 +42,9 @@ namespace TerminalBacarioDesktop
             {
                 case Keys.F5:
                     this.Close();
+                    break;
+                case Keys.F6:
+                    listagemextrato();
                     break;
                 default:
                     break;
@@ -55,12 +55,22 @@ namespace TerminalBacarioDesktop
 
         private void htmlLabel1_Click(object sender, EventArgs e)
         {
-
+            listagemextrato();
         }
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txt_conta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

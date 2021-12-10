@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace BancoCore
 {
-    class LancamentoRepository
+    public class LancamentoRepository
     {
         private readonly bancodbEntities _entities;
         public LancamentoRepository()
         {
             _entities = new bancodbEntities();
+        }
+
+
+        public List<Lancamentos> Extrato(int idconta)
+        {
+            return _entities.Lancamentos.Where(f => f.Data > DateTime.Now.AddDays(-30)).Where(f => f.ContaId == idconta).ToList();
         }
     }
 }
