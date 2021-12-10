@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BancoCore
@@ -15,6 +16,15 @@ namespace BancoCore
         {
             var correntista = new Correntista(cpf, nome);
             _entities.Correntista.Add(correntista);
+            _entities.SaveChanges();
+            Random randNum = new Random();
+
+            Conta conta = new Conta();
+            conta.CorrentistaId = correntista.Id;
+            conta.LimiteCredito = Convert.ToDecimal(randNum.Next(100, 1000));
+            conta.DataAbertura = DateTime.Now;
+            conta.Saldo = Convert.ToDecimal(randNum.Next(3000));
+            _entities.Conta.Add(conta);
             _entities.SaveChanges();
         }
 
