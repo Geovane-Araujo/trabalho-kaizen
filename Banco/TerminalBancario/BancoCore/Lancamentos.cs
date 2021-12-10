@@ -7,20 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace BancoCore
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class Lancamentos
     {
         public int Id { get; set; }
-        public System.DateTime Data { get; set; }
+        public System.DateTime Data { get; set; } = DateTime.Now;
         public int ContaId { get; set; }
         public int Operacao { get; set; }
-        public string Historico { get; set; }
+        public string Historico { get; set; } = String.Empty;
         public decimal Valor { get; set; }
     
         public virtual Conta Conta { get; set; }
+
+        public Lancamentos(int operacao, decimal valor, int contaId)
+        {
+            ContaId = contaId;
+            Operacao = operacao;
+            Valor = valor;
+        }
     }
+
+
 }

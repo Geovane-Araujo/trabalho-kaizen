@@ -17,7 +17,8 @@ namespace BancoCore
 
         public List<Lancamentos> Extrato(int idconta)
         {
-            return _entities.Lancamentos.Where(f => f.Data > DateTime.Now.AddDays(-30)).Where(f => f.ContaId == idconta).ToList();
+            var data = DateTime.Now.AddDays(-30);
+            return _entities.Lancamentos.Where(f => f.Data > data).Where(f => f.ContaId == idconta).ToList();
         }
 
         public Conta GetByID(int id)
@@ -34,6 +35,24 @@ namespace BancoCore
         {
             _entities.Conta.Add(conta);
             _entities.SaveChanges();
+        }
+
+        public string EfetuaTransferencia(int contaOrigemId, int contaDestinoId, decimal valor)
+        {
+            var contaSaida = _entities.Conta.FirstOrDefault(f => f.Id == contaOrigemId);
+            var valorContaSaida = contaSaida.Saldo + contaSaida.LimiteCredito;
+
+            if (valorContaSaida < valor)
+            {
+                return "Saldo insuficiente";
+            }
+
+            var lancamentoSaida = new Lancamentos(0, valor, contaOrigemId);
+            var lancamentoEntrada = new Lancamentos(1, valor, contaDestinoId);
+
+            _entities.Lancamentos.AddRange(new Lancamentos[] {lancamentoSaida, lancamentoEntrada});
+            _entities.SaveChanges();
+            return "Transferência realizada com sucesso";
         }
     }
 }
