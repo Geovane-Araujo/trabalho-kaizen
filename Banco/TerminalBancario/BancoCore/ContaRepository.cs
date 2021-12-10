@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace BancoCore
 {
-    class ContaRepository
+    public class ContaRepository
     {
         private readonly bancodbEntities _entities;
         public ContaRepository()
         {
             _entities = new bancodbEntities();
+        }
+
+        public void Saque(Conta conta)
+        {
+            _entities.Conta.Add(conta);
+            _entities.SaveChanges();
         }
     }
 }

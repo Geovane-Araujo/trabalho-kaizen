@@ -17,7 +17,8 @@ namespace BancoCore
 
         public List<Lancamentos> Extrato(int idconta)
         {
-            return _entities.Lancamentos.Where(f => f.Data > DateTime.Now.AddDays(-30)).Where(f => f.ContaId == idconta).ToList();
+            var data = DateTime.Now.AddDays(-30);
+            return _entities.Lancamentos.Where(f => f.Data > data).Where(f => f.ContaId == idconta).ToList();
         }
 
         public Conta GetByID(int id)
@@ -28,12 +29,6 @@ namespace BancoCore
                 return correntista;
             }
             else { return new Conta(); }
-        }
-
-        public void Saque(Conta conta)
-        {
-            _entities.Conta.Add(conta);
-            _entities.SaveChanges();
         }
     }
 }
