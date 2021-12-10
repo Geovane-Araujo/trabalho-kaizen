@@ -12,10 +12,16 @@ namespace BancoCore
             _entities = new bancodbEntities();
         }
 
+        public void Saque(Conta conta)
+        {
+            _entities.Conta.Add(conta);
+            _entities.SaveChanges();
+        }
+
         public void InsereConta()
         {
             var conta = new Conta();
-            _entities.Conta.Add(correntista);
+            _entities.Conta.Add(conta);
             _entities.SaveChanges();
         }
 

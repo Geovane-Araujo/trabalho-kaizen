@@ -29,6 +29,8 @@ namespace BancoCore
             Operacao = operacao;
             Valor = valor;
         }
+
+        public Lancamentos() { }
     }
 
 
